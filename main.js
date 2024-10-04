@@ -49,11 +49,12 @@ const th_lastname = document.createElement('th');
 tr.appendChild(th_lastname);
 th_lastname.innerHTML='vezetéknév';
 
+
 const th_firstname = document.createElement('th');
 tr.appendChild(th_firstname);
 th_firstname.innerHTML='keresztnév';
-
 th_lastname.colSpan=2;
+
 
 
 
@@ -111,3 +112,18 @@ for(const pers of array){
     }
  
 }
+
+const form = document.getElementById('form');
+form.addEventListener('submit',function(e){
+    const lastname = document.getElementById('lastname');
+    const firstname1 = document.getElementById('firstname1');
+    const firstname2 = document.getElementById('firstname2');
+    const married = document.getElementById('married');
+    const pet = document.getElementById('pet');
+
+    const firstname1Value = firstname1.value;
+    const firstname2Value = firstname2.value;
+    const lastnameValue = lastname.value;
+    const marriedValue = married.checked;
+    const petValue = pet.value;
+})
