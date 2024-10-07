@@ -37,26 +37,27 @@ table.appendChild(thead);
 const tr = document.createElement('tr');
 thead.appendChild(tr);
 
+
+
+const th_lastname = document.createElement('th');
+tr.appendChild(th_lastname);
+th_lastname.innerHTML = 'Vezetéknév';
+
+const th_firstname1 = document.createElement('th');
+tr.appendChild(th_firstname1);
+th_firstname1.innerHTML = 'Keresztnév 1';
+
+const th_firstname2 = document.createElement('th');
+tr.appendChild(th_firstname2);
+th_firstname2.innerHTML = 'Keresztnév 2';
+
 const th_pet = document.createElement('th');
 tr.appendChild(th_pet);
 th_pet.innerHTML = 'Háziállat';
 
- const th_married = document.createElement('th');
- tr.appendChild(th_married);
- th_married.innerHTML = "Házastárs"
-
-const th_lastname = document.createElement('th');
-tr.appendChild(th_lastname);
-th_lastname.innerHTML='vezetéknév';
-
-
-const th_firstname = document.createElement('th');
-tr.appendChild(th_firstname);
-th_firstname.innerHTML='keresztnév';
-th_lastname.colSpan=2;
-
-
-
+const th_married = document.createElement('th');
+tr.appendChild(th_married);
+th_married.innerHTML = 'Házastárs';
 
 const tbody = document.createElement('tbody');
 table.appendChild(tbody);
@@ -65,13 +66,7 @@ for(const pers of array){
     const tbody_tr = document.createElement('tr');
     tbody.appendChild(tbody_tr);
     
-    const td_pet = document.createElement('td');
-    tbody_tr.appendChild(td_pet);
-    td_pet.innerHTML = pers.pet;
-
-    const td_married = document.createElement('td');
-    tbody_tr.appendChild(td_married);
-    td_married.innerHTML = pers.married;
+  
 
     const tbody_td_lastname = document.createElement('td');
     tbody_tr.appendChild(tbody_td_lastname);
@@ -82,7 +77,10 @@ for(const pers of array){
     tbody_tr.appendChild(tbody_td_firstname);
    
     tbody_td_firstname.innerHTML = pers.firstname1;
+   
 
+
+    
     if(pers.firstname2 === undefined){
         tbody_td_firstname.colSpan = 2
     }
@@ -93,6 +91,14 @@ for(const pers of array){
         tbody_td_firstname.innerHTML = pers.firstname2;
     }
 
+    const td_pet = document.createElement('td');
+    tbody_tr.appendChild(td_pet);
+    td_pet.innerHTML = pers.pet;
+  
+
+    const td_married = document.createElement('td');
+    tbody_tr.appendChild(td_married);
+    td_married.innerHTML = pers.married;
     tbody_tr.addEventListener('click', function(e){
 
        const isSelected = tbody.querySelector('.selected');
