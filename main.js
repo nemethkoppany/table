@@ -82,19 +82,18 @@ form.addEventListener('submit',function(e){
         firstname2Value = undefined;
     }
 
-    const newperson = {
-        firstname1: firstname1Value,
-        firstname2: firstname2Value,
-        lastname: lastnameValue,
-        married: marriedValue,
-        pet: petValue
-    }
+        if(validateFields(lastname, firstname1, pet)){
+            const newperson = {
+                firstname1: firstname1Value,
+                firstname2: firstname2Value,
+                lastname: lastnameValue,
+                married: marriedValue,
+                pet: petValue
+            }
 
-    
-
-    array.push(newperson);
-    renderTable();
-   
+            array.push(newperson);
+            renderTable();
+        }
 })
 
 renderTable();
@@ -159,4 +158,30 @@ function renderTable(){
 
         
     }
+}
+
+function validateFields(lastname, firstname1, pet){
+    let result = true;
+    if(lastname.value === ""){
+        const apa = lastname.parentElement;
+        const error = apa.querySelector('.error')
+        error.innerHTML = 'Kötelező'
+        result = false;
+    }
+
+    if(firstname1.value === ""){
+        const apa = firstname1.parentElement;
+        const error = apa.querySelector('.error')
+        error.innerHTML = 'Kötelező'
+        result = false;
+    }
+
+    if(pet.value === ""){
+        const apa = pet.parentElement;
+        const error = apa.querySelector('.error')
+        error.innerHTML = 'Kötelező'
+        result = false;
+    }
+
+  return result;
 }
