@@ -39,25 +39,10 @@ thead.appendChild(tr);
 
 
 
-const th_lastname = document.createElement('th');
-tr.appendChild(th_lastname);
-th_lastname.innerHTML = 'Vezetéknév';
-
-const th_firstname1 = document.createElement('th');
-tr.appendChild(th_firstname1);
-th_firstname1.innerHTML = 'Keresztnév 1';
-
-const th_firstname2 = document.createElement('th');
-tr.appendChild(th_firstname2);
-th_firstname2.innerHTML = 'Keresztnév 2';
-
-const th_pet = document.createElement('th');
-tr.appendChild(th_pet);
-th_pet.innerHTML = 'Háziállat';
-
-const th_married = document.createElement('th');
-tr.appendChild(th_married);
-th_married.innerHTML = 'Házastárs';
+createTableCell("th","Vezetéknév",tr)
+createTableCell("th","Keresztnév 1", tr)
+createTableCell("th","háziállat",tr)
+createTableCell("th","házastárs",tr)
 
 const tbody = document.createElement('tbody');
 table.appendChild(tbody);
@@ -103,17 +88,13 @@ function renderTable(){
     for(const pers of array){
         const tbody_tr = document.createElement('tr');
         tbody.appendChild(tbody_tr);
-        
-        
-    
+
         const tbody_td_lastname = document.createElement('td');
         tbody_tr.appendChild(tbody_td_lastname);
-       
         tbody_td_lastname.innerHTML = pers.lastname;
      
         const tbody_td_firstname = document.createElement('td');
         tbody_tr.appendChild(tbody_td_firstname);
-       
         tbody_td_firstname.innerHTML = pers.firstname1;
        
     
@@ -137,6 +118,8 @@ function renderTable(){
         const td_married = document.createElement('td');
         tbody_tr.appendChild(td_married);
         td_married.innerHTML = pers.married;
+
+
         tbody_tr.addEventListener('click', function(e){
     
            const isSelected = tbody.querySelector('.selected');
@@ -184,4 +167,15 @@ function validateFields(lastname, firstname1, pet){
     }
 
   return result;
+}
+/**
+ * 
+ * @param {'td'|'th'} tagName 
+ * @param {string} innerHTML 
+ * @param {'HTMLTableRowElement} parentElement 
+ */
+function createTableCell(tagName, innerHTML, parentElement){
+   const td = document.createElement(tagName)
+   td.innerHTML = innerHTML;
+   parentElement.appendChild(td);
 }
