@@ -94,12 +94,11 @@ function renderTable(){
         
         if(pers.firstname2 === undefined){
             pers.firstname1.colSpan = 2;
+            
         }
         else{
             createTableCell("td", pers.firstname2, tbody_tr) 
-              pers.firstname1.colSpan == 2;
-           
-            
+
         }
 
         
