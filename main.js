@@ -40,9 +40,11 @@ thead.appendChild(tr);
 
 
 createTableCell("th","Vezetéknév",tr)
-createTableCell("th","Keresztnév 1", tr)
+const keresztnev = createTableCell("th","Keresztnév", tr)
 createTableCell("th","háziállat",tr)
 createTableCell("th","házastárs",tr)
+
+keresztnev.colSpan = 2;
 
 const tbody = document.createElement('tbody');
 table.appendChild(tbody);
@@ -56,6 +58,8 @@ form.addEventListener('submit',function(e){
     const firstname2 = document.getElementById('firstname2');
     const married = document.getElementById('married');
     const pet = document.getElementById('pet');
+
+    
 
     const firstname1Value = firstname1.value;
     let firstname2Value = firstname2.value;
@@ -90,15 +94,18 @@ function renderTable(){
         tbody.appendChild(tbody_tr);
 
         createTableCell("td",  pers.lastname, tbody_tr);
-        createTableCell("td", pers.firstname1, tbody_tr);
+       firstname1_cell = createTableCell("td", pers.firstname1, tbody_tr);
+      
         
         if(pers.firstname2 === undefined){
-            pers.firstname1.colSpan = 2;
+            
+           firstname1_cell.colSpan = 2;
+            
             
         }
         else{
-            createTableCell("td", pers.firstname2, tbody_tr) 
-
+            
+             createTableCell("td", pers.firstname2, tbody_tr); 
         }
 
         
@@ -161,4 +168,5 @@ function createTableCell(tagName, innerHTML, parentElement){
    const element  = document.createElement(tagName)
    element.innerHTML = innerHTML;
    parentElement.appendChild(element);
+   return element;
 }
