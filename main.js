@@ -165,8 +165,8 @@ function validateFields(lastname, firstname1, pet){
  * @param {'HTMLTableRowElement} parentElement 
  */
 function createTableCell(tagName, innerHTML, parentElement){
-   const element  = document.createElement(tagName)
-   element.innerHTML = innerHTML;
-   parentElement.appendChild(element);
-   return element;
+   const tablecell  = document.createElement(tagName)
+   tablecell.innerHTML = innerHTML;
+   parentElement.appendChild(tablecell);
+   return tablecell;
 }
