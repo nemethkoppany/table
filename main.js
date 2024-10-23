@@ -94,7 +94,7 @@ function renderTable(){
         tbody.appendChild(tbody_tr);
 
         createTableCell("td",  pers.lastname, tbody_tr);
-       firstname1_cell = createTableCell("td", pers.firstname1, tbody_tr);
+      const  firstname1_cell = createTableCell("td", pers.firstname1, tbody_tr);
       
         
         if(pers.firstname2 === undefined){
