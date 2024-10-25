@@ -28,26 +28,15 @@ let array = [
     },
 ]
 
-const table = document.createElement('table');
-document.body.appendChild(table);
 
-const thead = document.createElement('thead');
-table.appendChild(thead);
+createHTMLelement('table','person_table',document.body);
+create_HTML_element_with_parent_id('thead','person_thead','person_table');
+create_HTML_element_with_parent_id('tr','person_tr','person_thead');
 
-const tr = document.createElement('tr');
-thead.appendChild(tr);
+createTableHeaderCells();
 
 
-
-createTableCell("th","Vezetéknév",tr)
-const keresztnev = createTableCell("th","Keresztnév", tr)
-createTableCell("th","háziállat",tr)
-createTableCell("th","házastárs",tr)
-
-keresztnev.colSpan = 2;
-
-const tbody = document.createElement('tbody');
-table.appendChild(tbody);
+create_HTML_element_with_parent_id('tbody','person_tbody','person_table');
 
 
 const form = document.getElementById('form');
@@ -81,59 +70,13 @@ form.addEventListener('submit',function(e){
             }
 
             array.push(newperson);
-            renderTable();
+            renderTable(array);
             form.reset();
     }
     
 })
 
-renderTable();
-
-function renderTable(){
-    tbody.innerHTML = '';
-    for(const pers of array){
-        const tbody_tr = document.createElement('tr');
-        tbody.appendChild(tbody_tr);
-
-        createTableCell("td",  pers.lastname, tbody_tr);
-      const  firstname1_cell = createTableCell("td", pers.firstname1, tbody_tr);
-      
-        
-        if(pers.firstname2 === undefined){
-            
-           firstname1_cell.colSpan = 2;
-            
-            
-        }
-        else{
-            
-             createTableCell("td", pers.firstname2, tbody_tr); 
-        }
-
-        
-        createTableCell("td", pers.pet, tbody_tr);
-        createTableCell("td", pers.married ? "Igen" : "Nem", tbody_tr );
-       
-        
-
-
-        tbody_tr.addEventListener('click', function(e){
-    
-           const isSelected = tbody.querySelector('.selected');
-            if( isSelected != undefined){
-                isSelected.classList.remove('selected');
-           }
-    
-           e.currentTarget.classList.add('selected');
-           
-        })
-    
-       
-     
-
-        
-    }
-}
+renderTable(array);
 
 function validateFields(lastname, firstname1, pet){
     let result = true;
@@ -160,15 +103,4 @@ function validateFields(lastname, firstname1, pet){
 
   return result;
 }
-/**
- * 
- * @param {'td'|'th'} tagName 
- * @param {string} innerHTML 
- * @param {'HTMLTableRowElement} parentElement 
- */
-function createTableCell(tagName, innerHTML, parentElement){
-   const tablecell  = document.createElement(tagName)
-   tablecell.innerHTML = innerHTML;
-   parentElement.appendChild(tablecell);
-   return tablecell;
-}
+
