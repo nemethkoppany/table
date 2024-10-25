@@ -82,7 +82,9 @@ form.addEventListener('submit',function(e){
 
             array.push(newperson);
             renderTable();
-        }
+            form.reset();
+    }
+    
 })
 
 renderTable();
