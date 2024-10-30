@@ -77,30 +77,3 @@ form.addEventListener('submit',function(e){
 })
 
 renderTable(array);
-
-function validateFields(lastname, firstname1, pet){
-    let result = true;
-    if(lastname.value === ""){
-        const apa = lastname.parentElement;
-        const error = apa.querySelector('.error')
-        error.innerHTML = 'Kötelező'
-        result = false;
-    }
-
-    if(firstname1.value === ""){
-        const apa = firstname1.parentElement;
-        const error = apa.querySelector('.error')
-        error.innerHTML = 'Kötelező'
-        result = false;
-    }
-
-    if(pet.value === ""){
-        const apa = pet.parentElement;
-        const error = apa.querySelector('.error')
-        error.innerHTML = 'Kötelező'
-        result = false;
-    }
-
-  return result;
-}
-
