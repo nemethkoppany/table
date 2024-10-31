@@ -108,6 +108,6 @@ function validateElement(field){
       error.innerHTML = 'Kötelező'
       return false;
    }
-      error.innerHTML = ''//az erro.innerHTML lenullázsa
+      error.innerHTML = ''//az error.innerHTML lenullázsa
    return true;
 }
