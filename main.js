@@ -36,9 +36,10 @@ createTableHeaderCells();
 create_HTML_element_with_parent_id('tbody','person_tbody','person_table');
 
 //egy függvény ami új cellákat ad a táblázathoz amikor a feltöltés gomb megnyomásra kerül
-const form = document.getElementById('form');
+
 form.addEventListener('submit',function(e){//itt adjuk az utasítást, hogy figyeljen a gomlenyomásra és tegye azt ami a zárójeleken belül van
     e.preventDefault()
+    const form = e.currentTarget;
 
         if(validateFields(lastname, firstname1, pet)){//Ha a függvény meg van hívva, vegye fel az adatokat
             const newperson = {
