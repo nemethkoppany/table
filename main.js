@@ -41,7 +41,7 @@ form.addEventListener('submit',function(e){//itt adjuk az utasítást, hogy figy
     e.preventDefault()
     const form = e.currentTarget;
 
-        if(validateFields(lastname, firstname1, pet)){//Ha a függvény meg van hívva, vegye fel az adatokat
+    if (validateFields("lastname","firstname1","pet")){//Ha a függvény meg van hívva, vegye fel az adatokat
             const newperson = {
                 firstname1: document.getElementById('firstname1').value,
                 firstname2: document.getElementById('firstname2').value,
