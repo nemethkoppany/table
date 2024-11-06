@@ -41,13 +41,21 @@ form.addEventListener('submit',function(e){//itt adjuk az utasítást, hogy figy
     e.preventDefault()
     const form = e.currentTarget;
 
+    const firstname1 = document.getElementById('firstname1');
+    const firstname2 = document.getElementById('firstname2');
+    const lastname = document.getElementById('lastname');
+    const married = document.getElementById('married');
+    const pet = document.getElementById('pet');
+
+
+
     if (validateFields("lastname","firstname1","pet")){//Ha a függvény meg van hívva, vegye fel az adatokat
             const newperson = {
-                firstname1: document.getElementById('firstname1').value,
-                firstname2: document.getElementById('firstname2').value,
-                lastname: document.getElementById('lastname').value,
-                married:document.getElementById('married').checked,
-                pet: document.getElementById('pet').value
+                firstname1: firstname1.value,
+                firstname2: firstname2.value,
+                lastname: lastname.value,
+                married:married.checked,
+                pet: pet.value
             }
 
             array.push(newperson);
