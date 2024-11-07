@@ -84,7 +84,7 @@ function createTableCell(tagName, innerHTML, parentElement){//az elemek amiket h
 }
 
 
-function validateFields(){
+function validateFields(lastname, firstname1, pet){
 
 let valtozo = true; //A változót beállítjuk true értékre //Ha ezek közül bármelyik üres akkor a változó értéke false lesz és kiírja, hogy "kötelező"
  if(!validateElement(lastname)){

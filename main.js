@@ -49,7 +49,7 @@ form.addEventListener('submit',function(e){//itt adjuk az utasítást, hogy figy
 
 
 
-    if (validateFields("lastname","firstname1","pet")){//Ha a függvény meg van hívva, vegye fel az adatokat
+    if (validateFields(lastname,firstname1,pet)){//Ha a függvény meg van hívva, vegye fel az adatokat
             const newperson = {
                 firstname1: firstname1.value,
                 firstname2: firstname2.value,
